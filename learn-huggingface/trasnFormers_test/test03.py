@@ -20,6 +20,26 @@ tokenizer = BertTokenizer.from_pretrained(model_path)
 # 会自动加载 config.json 和 pytorch_model.bin 等文件
 model = BertForSequenceClassification.from_pretrained(model_path)
 
+
+
+'''
+| 任务类型                             | 描述                 |
+| -------------------------------- | ------------------ |
+| `"text-classification"`          | 文本分类，比如情感分析        |
+| `"token-classification"`         | 序列标注（如命名实体识别）      |
+| `"translation"`                  | 翻译                 |
+| `"summarization"`                | 文本摘要               |
+| `"question-answering"`           | 问答系统               |
+| `"text-generation"`              | 文本生成（例如 GPT 模型）    |
+| `"zero-shot-classification"`     | 零样本分类              |
+| `"conversational"`               | 对话建模               |
+| `"feature-extraction"`           | 特征提取               |
+| `"fill-mask"`                    | 填空任务（如 BERT）       |
+| `"image-classification"`         | 图像分类（需要 vision 模型） |
+| `"automatic-speech-recognition"` | 语音识别（ASR）          |
+
+'''
+
 # 使用 Hugging Face 的 pipeline 创建一个文本分类器
 # pipeline 是高阶封装工具，可以一行代码完成 tokenization + 推理 + 解码
 # "text-classification" 指定任务类型
