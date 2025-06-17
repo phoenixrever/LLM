@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.env
+.venv
+env/
+venv/
+*.log
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# VSCode
+.vscode/
+
+# Hugging Face Transformers & Datasets
+*.bin
+*.pt
+*.ckpt
+*.h5
+*.tflite
+*.onnx
+*.msgpack
+*.safetensors
+tokenizer.json
+special_tokens_map.json
+config.json
+pytorch_model.bin
+tf_model.h5
+rust_model.ot
+spiece.model
+*.model
+*.data
+*.index
+
+# Hugging Face cache folders
+huggingface/
+.huggingface/
+**/model
+model
+datasets/
+.cache/
