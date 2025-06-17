@@ -21,7 +21,7 @@ response = client.chat.completions.create(
             "role": "user",  # 设置消息角色为用户 ， "assistant"表示模型回答在多轮对话或需要记忆上下文的任务中非常有用。
             "content": [
                 {
-                    "type": "text",    # 内容类型为文本
+                    "type": "text",  # 内容类型为文本
                     "text": "君はだれ？君の名は？",  # 这里替换成你要输入的问题或指令
                 },
             ],
@@ -30,7 +30,9 @@ response = client.chat.completions.create(
     model="mistral:7b-instruct-v0.3-q4_K_M",  # 指定使用的本地模型名称，要确保你已通过 Ollama 拉取并启动该模型
     max_tokens=4096,  # 最多生成的 token 数量，可根据需要调整（注意太大会影响响应速度）
     temperature=0.5,  # 控制生成内容的随机性，0.0 表示完全确定性，1.0 表示最大随机性
-    top_p=0.9,  # 使用 nucleus sampling，控制生成内容的多样性
+    top_k=50,  # 使用 top-k 采样，限制每次生成的 token 数量，50 是一个常用的值,简单来说就是选前50个概率最高的词进行采样(render select)
+    top_p=0.9,  # 使用 nucleus sampling，控制生成内容的多样性, 0.9 表示选择概率累积到 90%(前面所有的token加起来0.9) 的词进行采样
+    # 这里的 top_k 和 top_p 可以根据需要调整，通常 top_p 更能控制生成内容的质量
     frequency_penalty=0.0,  # 控制重复内容的惩罚，0.0 表示不惩罚
     presence_penalty=0.0,  # 控制新话题的惩罚，0.0 表示不惩罚
     # stream=False,  # 是否使用流式响应，设置为 False 表示一次性获取完整回复
